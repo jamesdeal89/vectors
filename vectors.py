@@ -30,13 +30,18 @@ class Vector():
         length = vector.x^2+vector.y^2
         return length
 
+    def length(self, vector):
+        # same as lengthsq but sq root at the end
+        length = vector.x^2+vector.y^2
+        return math.sqrt(length)
+
     def angle(self, vector1):
         # find lenths of each vector
-        length = Vector.lengthsq(self)
-        length1 = Vector.lengthsq(vector1)
+        length = Vector.length(self)
+        length1 = Vector.length(vector1)
         # formula for finding angle between two vectors is:
         # CosӨ = U*V/lengthU*lengthV
         # therefore: Ө = Cos^-1(U*V/lengthU*lengthV)
-        midangle = math.acos(Vector.dot(vector1)/length*length1)
+        midangle = math.acos(self.dot(vector1)/length*length1)
         return midangle
 
